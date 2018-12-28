@@ -368,7 +368,7 @@ func (e *encoder) writeImage(w io.Writer, m image.Image, cb int, level int) erro
 	paletted, _ := m.(*image.Paletted)
 	nrgba, _ := m.(*image.NRGBA)
 
-	for y := b.Min.Y; y < b.Max.Y; y++ {
+	for y := b.Max.Y - 1; y >= b.Min.Y; y-- {
 		// Convert from colors to bytes.
 		i := 1
 		switch cb {
